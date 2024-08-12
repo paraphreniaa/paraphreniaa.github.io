@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>marll</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        video {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            display: none;
+        }
+
+        .centered-box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            border: 2px solid white;
+            padding: 30px;
+            box-shadow: 0 0 20px 20px rgba(152, 230, 253, 0.5);
+            color: #f2f2f2;
+        }
+
+        .top-bar {
+            background-color: transparent;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            opacity: 0;
+            animation: fade-in 1s forwards;
+        }
+
+        @keyframes fade-in {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .logo img {
+            width: 76px;
+            height: auto;
+            filter: drop-shadow(0 0 10px rgba(152, 230, 253, 0.5));
+        }
+
+        .centered-box h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(152, 230, 253, 0.5);
+        }
+
+        .enter-text h1 {
+            font-size: 70px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(152, 230, 253, 0.5);
+            cursor: pointer;
+        }
+
+        .centered-box p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .centered-box .additional-section {
+            font-size: 16px;
+        }
+        
+        #overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid black;
+            box-shadow: 0 0 50px 20px rgba(0, 0, 0, 0.7); /* Add a shadow effect */
+            box-sizing: border-box;
+        }
+
+        #overlay-text {
+            font-size: 24px;
+            color: #f2f2f2;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="overlay" onclick="startMedia()">
+        <div id="overlay-text" class="enter-text">
+            Click to Enter
+        </div>
+    </div>
+
+    <video id="video" autoplay loop>
+        <source src="video.mp4" type="video/mp4">
+        Not supported Check your browser
+    </video>
+
+    <div class="centered-box">
+        <h1>Marll</h1>
+        <p>Discord: qklqq</p>
+        <p>Snap: marll.050</p>
+        <p class="additional-section">im/better</p>
+    </div>
+    
+    <script src="script.js"></script>
+
+    <script>
+        function startMedia() {
+            var video = document.getElementById('video');
+            var overlay = document.getElementById('overlay');
+
+            overlay.style.display = 'none';
+            video.style.display = 'block';
+
+            video.currentTime = 0;
+
+            video.play();
+        }
+    </script>
+</body>
+</html>

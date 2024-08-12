@@ -1,0 +1,169 @@
+body {
+    background-color: #121212;
+    color: #f2f2f2;
+    font-family: 'Ariel', sans-serif;
+    zoom: 100%;
+}
+
+.music-bar {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #121212;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(157, 218, 253, 0.5);
+    animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+    100% { box-shadow: 0 0 20px rgba(255, 255, 255, 1); }
+}
+
+.song-info {
+    display: flex;
+    align-items: center;
+}
+
+#current-song {
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.song-info img {
+    width: 20px;
+    height: auto;
+    margin-left: 10px;
+}
+
+.song-info img {
+    width: 20px;
+    height: auto;
+    margin-left: 10px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background-color: #555555;
+    margin-top: 5px;
+    position: relative;
+    border-radius: 2px;
+}
+
+#progress-tracker {
+    height: 100%;
+    background-color: #9dafdd;
+    width: 0;
+    position: absolute;
+    border-radius: 2px;
+    transition: width 0.2s ease-in-out;
+}
+
+#current-song {
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.centered-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border: 2px solid white;
+    padding: 30px;
+    box-shadow: 0 0 10px 5px rgba(152, 230, 253, 0.5);
+}
+
+.kys {
+    text-shadow: 0 0 10px rgba(152, 230, 253, 0.5);
+}
+
+.centered-box h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(152, 230, 253, 0.5);
+}
+
+.enter-text h1 {
+    font-size: 70px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(152, 230, 253, 0.5);
+}
+
+.centered-box p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.centered-box .additional-section {
+    font-size: 16px;
+}
+
+.top-bar {
+    background-color: transparent;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+    animation: fade-in 1s forwards;
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.logo img {
+    width: 76px;
+    height: auto;
+    filter: drop-shadow(0 0 10px rgba(152, 230, 253, 0.5));
+}
+
+.discord-button img {
+    width: 60px;
+    height: auto;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 0 10px rgba(152, 230, 253, 0.5));
+}
+
+.discord-button:hover img,
+.discord-button:focus img {
+    transform: scale(0.95);
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 9999;
+    backdrop-filter: blur(5px); 
+}
+
+.discord-text {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
