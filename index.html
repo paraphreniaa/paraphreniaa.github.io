@@ -33,11 +33,17 @@
             border: 2px solid white;
             padding: 30px;
             color: #f2f2f2;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)); /* See-through gradient background */
+            background: linear-gradient(to bottom, rgba(255, 255, 0, 0.5), rgba(255, 0, 0, 0.5)); /* See-through gradient background */
             border-radius: 15px; /* Rounded corners */
             box-shadow: 
                 0 0 0 2px black,    /* Black outline, 2px wide */
                 0 0 0 34px rgba(0, 0, 0, 0); /* Transparent space of 32px */
+        }
+
+        .centered-box h1, .centered-box p {
+            text-shadow: 
+                0 0 10px rgba(255, 255, 255, 0.8),  /* Outer glow */
+                2px 2px 5px rgba(0, 0, 0, 0.7);    /* Text shadow */
         }
 
         .top-bar {
@@ -64,13 +70,14 @@
         .centered-box h1 {
             font-size: 40px;
             margin-bottom: 20px;
-            text-shadow: 0 0 10px rgba(152, 230, 253, 0.5);
         }
 
         .enter-text h1 {
             font-size: 70px;
             margin-bottom: 20px;
-            text-shadow: 0 0 10px rgba(152, 230, 253, 0.5);
+            text-shadow: 
+                0 0 10px rgba(255, 255, 255, 0.8),  /* Outer glow */
+                2px 2px 5px rgba(0, 0, 0, 0.7);    /* Text shadow */
             cursor: pointer;
         }
 
@@ -114,6 +121,9 @@
             font-size: 24px;
             color: #f2f2f2;
             text-align: center;
+            text-shadow: 
+                0 0 10px rgba(255, 255, 255, 0.8),  /* Outer glow */
+                2px 2px 5px rgba(0, 0, 0, 0.7);    /* Text shadow */
         }
     </style>
 </head>
