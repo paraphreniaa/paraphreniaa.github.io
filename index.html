@@ -6,6 +6,11 @@
     <link rel="stylesheet" href="style.css">
     <title>marll</title>
     <style>
+        /* Ensure box-sizing is consistent */
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             overflow: hidden;
@@ -45,10 +50,10 @@
             position: absolute;
             top: -20px;
             left: -20px;
-            right: -20px;
-            bottom: -20px;
+            width: calc(100% + 40px); /* Expands to maintain distance */
+            height: calc(100% + 40px); /* Expands to maintain distance */
             border: 2px solid black;
-            border-radius: 35px; /* To match the rounded corners with the offset */
+            border-radius: 35px; /* Adjust border-radius to match offset */
             z-index: -1; /* Ensure the outline stays behind the box */
         }
 
