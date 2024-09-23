@@ -3,163 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>marll</title>
+    <title>Marll</title>
     <style>
         body {
             margin: 0;
-            overflow: hidden;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh; /* Full viewport height */
-            background-color: #000;
+            background-color: #000; /* Black background */
         }
 
-        video {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -1;
-            display: none;
-        }
-
-        .centered-box-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        /* Container for the glowing outline */
+        .glow-box {
             padding: 20px;
-            border: 2px solid black; /* Black outline */
-            border-radius: 35px; /* Rounded corners for the black outline */
-            box-sizing: border-box;
-        }
-
-        .centered-box {
+            border: 2px solid rgba(0, 0, 255, 0.6); /* Blue glowing outline */
+            border-radius: 20px;
+            position: relative;
+            background: rgba(0, 0, 0, 0.6); /* Transparent black background */
+            width: 280px;
             text-align: center;
-            width: 300px; /* Reduced width for better balance */
-            border: 2px solid white;
-            padding: 30px;
-            color: #f2f2f2;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)); /* See-through gradient background */
-            border-radius: 25px; /* Rounded corners */
-            box-shadow: 0 0 45px white, 0 0 20px rgba(0, 0, 0, 0.5); /* Glow and shadow effect */
+            box-shadow: 0 0 15px rgba(0, 0, 255, 0.7); /* Glowing effect */
         }
 
-        .centered-box h1, .centered-box p {
-            text-shadow: 
-                0 0 10px rgba(255, 255, 255, 1.8),  /* Outer glow */
-                2px 2px 5px rgba(0, 0, 0, 1.7);    /* Text shadow */
+        /* Title */
+        .glow-box h1 {
+            font-size: 40px;
+            color: rgba(0, 0, 255, 0.9); /* Glowing blue text */
+            text-shadow: 0 0 10px rgba(0, 0, 255, 0.9), 2px 2px 5px rgba(0, 0, 0, 0.9);
+            margin-bottom: 10px;
         }
 
-        .centered-box h1 {
-            font-size: 35px; /* Adjusted font size */
-            margin-bottom: 20px;
+        /* Subtitle and other text */
+        .glow-box p {
+            font-size: 18px;
+            color: rgba(0, 0, 255, 0.6); /* Lighter blue */
+            text-shadow: 0 0 5px rgba(0, 0, 255, 0.6), 2px 2px 5px rgba(0, 0, 0, 0.7);
+            margin-bottom: 10px;
         }
 
-        .centered-box p {
-            font-size: 16px;
-            margin-bottom: 20px;
-        }
-
-        .centered-box .additional-section {
-            font-size: 14px;
-        }
-
-        .image-buttons {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
-        }
-
-        .image-buttons img {
+        /* Discord icon styling */
+        .glow-box img {
             width: 50px;
             height: 50px;
-            cursor: pointer;
-            transition: transform 0.2s;
+            margin-top: 10px;
         }
-
-        .image-buttons img:hover {
-            transform: scale(1.1);
-        }
-
-        #overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid black;
-            box-shadow: 0 0 50px 20px rgba(0, 0, 0, 0.7); /* Add a shadow effect */
-            box-sizing: border-box;
-        }
-
-        #overlay-text {
-            font-size: 24px;
-            color: #f2f2f2;
-            text-align: center;
-            text-shadow: 
-                0 0 10px rgba(255, 255, 255, 0.8),  /* Outer glow */
-                2px 2px 5px rgba(0, 0, 0, 0.7);    /* Text shadow */
-        }
-
     </style>
 </head>
 <body>
 
-    <div id="overlay" onclick="startMedia()">
-        <div id="overlay-text" class="enter-text">
-            Click to Enter
-        </div>
+    <div class="glow-box">
+        <h1>Marl</h1>
+        <p>snap : marl.050</p>
+        <p>alias: qklq, slaad</p>
+        <img src="icon1.png" alt="Discord">
     </div>
 
-    <video id="video" autoplay loop>
-        <source src="video.mp4" type="video/mp4">
-        Not supported Check your browser
-    </video>
-
-    <!-- Outline wrapper around the centered box -->
-    <div class="centered-box-wrapper">
-        <div class="centered-box">
-            <h1>Marll</h1>
-            <p>Snap: marll.050</p>
-            <p class="additional-section">Alias: Marll, qklq, slaad, paraphrenia</p>
-
-            <!-- New Image Buttons Section -->
-            <div class="image-buttons">
-                <img src="icon1.png" alt="Copy Discord" onclick="copyText('ovhattacks')" title="Copy Discord">
-            </div>
-        </div>
-    </div>
-
-    <script>
-        function startMedia() {
-            var video = document.getElementById('video');
-            var overlay = document.getElementById('overlay');
-
-            overlay.style.display = 'none';
-            video.style.display = 'block';
-
-            video.currentTime = 0;
-            video.play();
-        }
-
-        // Copy Text to Clipboard
-        function copyText(text) {
-            navigator.clipboard.writeText(text).then(function() {
-                alert('Copied: ' + text);
-            }, function(err) {
-                console.error('Failed to copy text: ', err);
-            });
-        }
-    </script>
 </body>
 </html>
