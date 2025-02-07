@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>marll</title>
+    <title>Marll</title>
     <style>
         body {
             margin: 0;
@@ -33,17 +33,17 @@
             border: 2px solid white;
             padding: 30px;
             color: #f2f2f2;
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5)); /* See-through gradient background */
-            border-radius: 25px; /* Rounded corners */
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.5));
+            border-radius: 25px;
             box-shadow: 
-                0 0 45px white,    /* White glow effect */
-                0 0 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+                0 0 45px white, 
+                0 0 20px rgba(0, 0, 0, 0.5);
         }
 
         .centered-box h1, .centered-box p {
             text-shadow: 
-                0 0 10px rgba(255, 255, 255, 1.8),  /* Outer glow */
-                2px 2px 5px rgba(0, 0, 0, 1.7);    /* Text shadow */
+                0 0 10px rgba(255, 255, 255, 1.8),  
+                2px 2px 5px rgba(0, 0, 0, 1.7);
         }
 
         .top-bar {
@@ -76,8 +76,8 @@
             font-size: 70px;
             margin-bottom: 20px;
             text-shadow: 
-                0 0 10px rgba(255, 255, 255, 0.8),  /* Outer glow */
-                2px 2px 5px rgba(0, 0, 0, 0.7);    /* Text shadow */
+                0 0 10px rgba(255, 255, 255, 0.8),  
+                2px 2px 5px rgba(0, 0, 0, 0.7);
             cursor: pointer;
         }
 
@@ -113,7 +113,7 @@
             align-items: center;
             justify-content: center;
             border: 2px solid black;
-            box-shadow: 0 0 50px 20px rgba(0, 0, 0, 0.7); /* Add a shadow effect */
+            box-shadow: 0 0 50px 20px rgba(0, 0, 0, 0.7);
             box-sizing: border-box;
         }
 
@@ -122,8 +122,8 @@
             color: #f2f2f2;
             text-align: center;
             text-shadow: 
-                0 0 10px rgba(255, 255, 255, 0.8),  /* Outer glow */
-                2px 2px 5px rgba(0, 0, 0, 0.7);    /* Text shadow */
+                0 0 10px rgba(255, 255, 255, 0.8),  
+                2px 2px 5px rgba(0, 0, 0, 0.7);
         }
 
         .image-buttons {
@@ -143,6 +143,28 @@
             transform: scale(1.1);
         }
 
+        .audio-controls {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .audio-controls button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .audio-controls button:hover {
+            background: #45a049;
+        }
     </style>
 </head>
 <body>
@@ -158,33 +180,49 @@
         Not supported Check your browser
     </video>
 
+    <audio id="background-audio" loop>
+        <source src="audio.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
     <div class="centered-box">
         <h1>Marll</h1>
-        <p>Kill all the gays</p>
-        <p class="additional-section">i hate the special challenged and colored people</p>
+        <p>fgh</p> 
+        <p class="additional-section">cvbcvb</p> 
 
-        <!-- New Image Buttons Section -->
         <div class="image-buttons">
             <img src="icon1.png" alt="Copy Discord" onclick="copyText('govleaks')" title="Copy Discord">
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <div class="audio-controls">
+        <button onclick="toggleAudio()">Play/Pause Audio</button>
+    </div>
 
     <script>
         function startMedia() {
             var video = document.getElementById('video');
             var overlay = document.getElementById('overlay');
+            var audio = document.getElementById('background-audio');
 
             overlay.style.display = 'none';
             video.style.display = 'block';
-
             video.currentTime = 0;
-
             video.play();
+
+            // Play the audio when entering the site
+            audio.play().catch(error => console.error("Audio playback failed:", error));
         }
 
-        // Copy Text to Clipboard
+        function toggleAudio() {
+            var audio = document.getElementById('background-audio');
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+
         function copyText(text) {
             navigator.clipboard.writeText(text).then(function() {
                 alert('Copied: ' + text);
