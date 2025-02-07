@@ -195,9 +195,7 @@
         </div>
     </div>
 
-    <div class="audio-controls">
-        <button onclick="toggleAudio()">Play/Pause Audio</button>
-    </div>
+   
 
     <script>
         function startMedia() {
@@ -212,15 +210,6 @@
 
             // Play the audio when entering the site
             audio.play().catch(error => console.error("Audio playback failed:", error));
-        }
-
-        function toggleAudio() {
-            var audio = document.getElementById('background-audio');
-            if (audio.paused) {
-                audio.play();
-            } else {
-                audio.pause();
-            }
         }
 
         function copyText(text) {
